@@ -24,6 +24,9 @@ namespace WebAPIClient
         [DataMember(Name = "watchers")]
         public int Watchers { get; set; }
 
+        [DataMember(Name="score")]
+        public float Score { get; set; }
+
         [IgnoreDataMember]
         public DateTime LastPush { get; set; }
 
