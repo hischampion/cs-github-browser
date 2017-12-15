@@ -23,6 +23,12 @@ namespace WebAPIClient
                     GithubClient client = new GithubClient();
                     SearchResult result = client.PerformSearch(new EscapedString(query)).Result;
 
+                    if(result.Count == 0)
+                    {
+                        Console.WriteLine("No results found.\n");
+                        continue;
+                    }
+
                     // basic print of results TODO put this in columns
                     foreach (var repo in result.items)
                     {
@@ -45,7 +51,7 @@ namespace WebAPIClient
         {
             System.Diagnostics.Debug.WriteLine("Hello World!");
             GithubClient client = new GithubClient();
-            var repos = client.ProcessRepositories("dotnet").Result;
+            var repos = client.ProcessRepositories(new EscapedString("dotnet")).Result;
 
             foreach (var repo in repos)
             {

@@ -8,7 +8,7 @@ namespace WebAPIClient
     public class SearchResult
     {
         [DataMember(Name ="total_count")]
-        public String Count { get; set; }
+        public int Count { get; set; }
 
         // not sure what this means in the github json
         // count will be thousands, and items will be 30, but incomplete is false

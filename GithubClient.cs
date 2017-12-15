@@ -36,13 +36,14 @@ namespace WebAPIClient
 
             var streamTask = client.GetStreamAsync(root + parameter + query);
 
+            // Parse the JSON using a stream, to the model object
             return serializer.ReadObject(await streamTask) as SearchResult;
         }
 
         /**
          * Get the repos for a given owner.
          */
-        public async Task<List<Repository>> ProcessRepositories(String owner)
+        public async Task<List<Repository>> ProcessRepositories(EscapedString owner)
         {
             var serializer = new DataContractJsonSerializer(typeof(List<Repository>));
 
